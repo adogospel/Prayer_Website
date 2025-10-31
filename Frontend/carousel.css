@@ -1,0 +1,77 @@
+.book-carousel {
+  text-align: center;
+  padding: 40px 30px;
+  background: linear-gradient(to bottom right, #e7a92f, #e24c0b);
+  color: #fff;
+  border-radius: 50px;
+  box-shadow: 0 40px 30px rgba(226, 76, 11, 0.18);
+}
+
+.book-carousel h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.carousel-container {
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll 18s linear infinite;
+  padding: 15px;
+}
+
+.book-card {
+  flex: 0 0 250px;
+  background: #fff;
+  color: #333;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.4s;
+  transform-style: preserve-3d;
+}
+
+.book-card:hover {
+  transform: rotateY(10deg) scale(1.05);
+}
+
+.book-card img {
+  width: 100%;
+  border-radius: 10px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.book-card h3 {
+  margin-top: 15px;
+  font-size: 1.2em;
+  color: #e24c0b;
+}
+
+.book-card p {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 10px;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .book-card {
+    flex: 0 0 200px;
+  }
+  .carousel-track {
+    animation-duration: 20s ;
+	
+  }
+}

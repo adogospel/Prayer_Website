@@ -1,0 +1,125 @@
+/* ===== GLOBAL STYLE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #0b0b0b;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* ===== HEADER ===== */
+.header {
+  padding: 1.5rem 2rem;
+  background: #111;
+  text-align: center;
+  border-bottom: 2px solid #e7a92f;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.logo span {
+  color: #e7a92f;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(rgba(145, 143, 143, 0.7), rgba(0,0,0,0.8)),
+              url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80') center/cover;
+  color: #fff;
+  text-align: center;
+  padding: 6rem 1rem;
+}
+
+.hero h2 {
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+  color: #e7a92f;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: auto;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ===== FORM SECTION ===== */
+.form-section {
+  padding: 3rem 1rem;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.form-section h2 {
+  color: #e7a92f;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.intercessor-form {
+  background: #111;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(226, 76, 11, 0.15);
+}
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group input {
+  flex: 1;
+  padding: 0.9rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #e7a92f;
+  outline: none;
+  background: #151515;
+}
+
+/* ===== BUTTON ===== */
+.btn-submit {
+  background: linear-gradient(135deg, #e7a92f, #e24c0b);
+  color: #fff;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(226, 76, 11, 0.4);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background: #111;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}

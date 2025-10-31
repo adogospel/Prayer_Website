@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="footer.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="./assets/images/icon1.png">
+    <title>Lets Pray</title>
+  </head>
+  <body>
+    <header>
+      <div class="nav container">
+        <!--Menu-Icon-->
+        <i class="bx bx-menu" id="menu-icon"></i>
+        <a href="#" class="logo">Lets<span>Pray</span></a>
+        <ul class="navbar">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#ebooks">E-books</a></li>
+          <li><a href="#prayer-request">Prayer Requests</a></li>
+          <li>
+            <a href="../Frontend/intercessors/intercessors.html"
+              >Intercessors</a
+            >
+          </li>
+          <li><a href="../Frontend/About/about.html">About Us</a></li>
+          <li><a href="../Frontend/Contact/contact.html">Contact Us</a></li>
+        </ul>
+        <button id="open-signin" class="sign-in"><span>Sign In</span></button>
+      </div>
+    </header>
+    <!-- Modal backdrop + container -->
+    <div
+      id="auth-modal"
+      class="auth-modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-labelledby="auth-title"
+    >
+      <div class="auth-modal-panel" role="document">
+        <button class="auth-close" id="auth-close" aria-label="Close">
+          &times;
+        </button>
+
+        <!-- Tabs -->
+        <div class="auth-tabs">
+          <button id="tab-signin" class="tab active">Sign In</button>
+          <button id="tab-signup" class="tab">Sign Up</button>
+        </div>
+
+        <!-- SIGN IN FORM -->
+        <form id="signin-form" class="auth-form active" autocomplete="on">
+          <h2 id="auth-title">Welcome back</h2>
+
+          <label class="field">
+            <span>Email</span>
+            <input
+              id="signin-email"
+              name="email"
+              type="email"
+              required
+              placeholder="you@example.com"
+            />
+          </label>
+
+          <label class="field">
+            <span>Password</span>
+            <input
+              id="signin-password"
+              name="password"
+              type="password"
+              required
+              placeholder="Your password"
+            />
+          </label>
+
+          <div class="row between">
+            <label class="checkbox">
+              <input id="keep-signed" type="checkbox" />
+              <span>Keep me signed in</span>
+            </label>
+
+            <a href="#" id="forgot-link" class="link">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn primary full">Sign In</button>
+
+          <div class="row center small">
+            <span>Don't have an account?</span>
+            <button type="button" id="to-signup" class="btn outline small">
+              Sign Up
+            </button>
+          </div>
+        </form>
+
+        <!-- SIGN UP FORM -->
+        <form id="signup-form" class="auth-form" autocomplete="on">
+          <h2>Create account</h2>
+
+          <label class="field">
+            <span>Full name</span>
+            <input
+              id="signup-name"
+              name="name"
+              type="text"
+              required
+              placeholder="Your full name"
+            />
+          </label>
+
+          <label class="field">
+            <span>Email</span>
+            <input
+              id="signup-email"
+              name="email"
+              type="email"
+              required
+              placeholder="you@example.com"
+            />
+          </label>
+
+          <label class="field">
+            <span>Password</span>
+            <input
+              id="signup-password"
+              name="password"
+              type="password"
+              required
+              placeholder="Choose a password"
+            />
+          </label>
+
+          <button type="submit" class="btn primary full">Sign Up</button>
+
+          <div class="row center small">
+            <span>Already registered?</span>
+            <button type="button" id="to-signin" class="btn outline small">
+              Sign In
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--Home Section-->
+    <section class="home" id="home">
+      <div class="overlay"></div>
+      <div class="home-text">
+        <h1 class="h1 animate-pop-in" id="home">
+          Rejoice always, pray without ceasing , give <br />thanks in all
+          circumtances; for this is the will of God in Christ Jesus for you
+        </h1>
+        <!--Home Buttons-->
+        <div class="btn-group">
+          <button id="open-prayer-btn" class="btn primary">Submit a Prayer Request</button>
+          <a href="./intercessors/intercessors.html" class="btn outline">Become an Intercessor</a>
+        </div>
+      </div>
+    </section>
+
+    <!--Book Exposure Section-->
+    <section class="books" id="ebooks">
+      <h1 class="h1">The victory of an Intercessor</h1>
+      <p class="p verse">
+        "Mark 11:24 - Therefore I tell you, whatever you ask in prayer, believe
+        that you have received it, and it will be yours."
+      </p>
+
+      <!--CAROUSEL-->
+      <section class="book-carousel">
+        <h2>📚 Nos Livres Populaires</h2>
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <div class="book-card">
+              <img
+                src="https://images.unsplash.com/photo-1512820790803-83ca734da794"
+                alt="Livre 1"
+              />
+              <h3>Le Pouvoir du Savoir</h3>
+              <p>Une aventure à travers la connaissance et la découverte.</p>
+            </div>
+            <div class="book-card">
+              <img
+                src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f"
+                alt="Livre 2"
+              />
+              <h3>L’Art de Réussir</h3>
+              <p>Apprenez les secrets du succès et de la motivation.</p>
+            </div>
+            <div class="book-card">
+              <img
+                src="https://images.unsplash.com/photo-1544717305-2782549b5136"
+                alt="Livre 3"
+              />
+              <h3>Esprit Créatif</h3>
+              <p>Développez votre imagination et vos talents cachés.</p>
+            </div>
+            <div class="book-card">
+              <img
+                src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da"
+                alt="Livre 4"
+              />
+              <h3>Force et Courage</h3>
+              <p>Des histoires inspirantes de dépassement de soi.</p>
+            </div>
+            <!-- Copies pour l'effet infini -->
+            <div class="book-card">
+              <img
+                src="https://images.unsplash.com/photo-1512820790803-83ca734da794"
+                alt="Livre 1"
+              />
+              <h3>Le Pouvoir du Savoir</h3>
+              <p>Une aventure à travers la connaissance et la découverte.</p>
+            </div>
+            <div class="book-card">
+              <img
+                src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f"
+                alt="Livre 2"
+              />
+              <h3>L’Art de Réussir</h3>
+              <p>Apprenez les secrets du succès et de la motivation.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <button class="btn primary">More Books</button>
+    </section>
+
+    <!--PRAYER REQUEST SECTION-->
+    <section class="prayer-request" id="prayer-request">
+      <div class="container">
+        <div class="sidebar">
+          <div class="categories">
+            <h3>PRAYER <span>CATEGORIES</span></h3>
+            <select>
+              <option>All Categories</option>
+              <option>Addictions</option>
+              <option>Difficult Moments</option>
+              <option>Family</option>
+              <option>Finances</option>
+              <option>General</option>
+              <option>Guidance</option>
+              <option>Health</option>
+              <option>Relationship with God</option>
+              <option>Relationship with Others</option>
+              <option>Thanks</option>
+            </select>
+          </div>
+
+          <div class="about">
+            <img src="./assets/images/bible.jpg" alt="Prayer Wall" />
+            <p class="about-title">About the Prayer Wall</p>
+            <p>
+              <em>The Upper Room Prayer Wall</em> is a place for people to
+              connect—with each other and with God. Each day, hundreds of
+              visitors share their needs, praises, and concerns and respond to
+              others’ prayer requests.
+            </p>
+            <a href="#">Read More</a>
+          </div>
+
+          <div class="partner">
+            <img src="./assets/images/prayer1.jpg" alt="Prayer Wall" />
+            <p class="partner-title">BECOME A PRAYER PARTNER</p>
+            <p>
+              Want to receive prayer requests in your inbox? Sign up to receive
+              email updates with prayer requests from the wall.
+            </p>
+            <button class="sign-in btn primary" id="open-signin">
+              Sign Up to Pray
+            </button>
+          </div>
+        </div>
+
+        <div class="wall">
+          <div class="post">
+            <div class="pray-info">
+              <span>Prayed for 376 times.</span>
+              <button class="btn primary">I PRAYED FOR THIS</button>
+            </div>
+            <h4>angela0001 from Nm requests prayer...</h4>
+            <p>🙏 Please pray for me to trust God while he's being silent.</p>
+            <small>October 24, 2025 — Found in: in Relationship with God</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--FOOTER SECTION-->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-about">
+          <h3 class="logo">Lets<span>Pray</span></h3>
+          <p>
+            A global community of faith united in prayer. We believe in the
+            power of intercession and connection with God through love and
+            gratitude.
+          </p>
+          <div class="footer-socials">
+            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="#"><i class="bx bxl-instagram"></i></a>
+            <a href="#"><i class="bx bxl-twitter"></i></a>
+            <a href="#"><i class="bx bxl-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#ebooks">E-books</a></li>
+            <li><a href="#prayer-request">Prayer Requests</a></li>
+            <li><a href="#parts">Intercessors</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Contact Info</h4>
+          <ul>
+            <li><i class="bx bx-map"></i> Douala, Cameroon</li>
+            <li><i class="bx bx-envelope"></i> info@letspray.org</li>
+            <li><i class="bx bx-phone"></i> +237 6 90 12 34 56</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 LetsPray. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!--Link to Js-->
+    <script src="script.js"></script>
+    <script src="carousel.js"></script>
+
+    <!-- Prayer Request Modal -->
+<div id="prayer-modal" class="auth-modal" aria-hidden="true" role="dialog">
+  <div class="auth-modal-panel" role="document">
+    <button class="auth-close" id="close-prayer-modal" aria-label="Close">
+      &times;
+    </button>
+
+    <form id="prayer-form" class="auth-form active">
+      <h2>Submit Your Prayer Request</h2>
+
+      <label class="field">
+        <span>Your Name</span>
+        <input type="text" id="prayer-name" name="name" required placeholder="Enter your name" />
+      </label>
+
+      <label class="field">
+        <span>Prayer Category</span>
+        <select id="prayer-category" name="category" required>
+          <option value="">Select a category</option>
+          <option>Addictions</option>
+          <option>Difficult Moments</option>
+          <option>Family</option>
+          <option>Finances</option>
+          <option>General</option>
+          <option>Guidance</option>
+          <option>Health</option>
+          <option>Relationship with God</option>
+          <option>Relationship with Others</option>
+          <option>Thanks</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Your Prayer Request</span>
+        <textarea id="prayer-text" name="request" rows="5" required placeholder="Write your prayer..."></textarea>
+      </label>
+
+      <button type="submit" class="btn primary full">Submit</button>
+    </form>
+  </div>
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,203 @@
+/* ===== GLOBAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #0b0b0b;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.logo span {
+  color: #e7a92f;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #e24c0b;
+}
+
+.menu-icon {
+  display: none;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: #111;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.8)),
+              url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80') center/cover;
+  color: #fff;
+  text-align: center;
+  padding: 6rem 1rem;
+}
+
+.hero h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.hero span {
+  color: #e7a92f;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: auto;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+}
+
+/* ===== MISSION ===== */
+.mission {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.mission-container {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.mission-card {
+  background: #111;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(226, 76, 11, 0.15);
+  transition: 0.3s ease;
+}
+
+.mission-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(231, 169, 47, 0.25);
+}
+
+.mission-card i {
+  font-size: 2.5rem;
+  color: #e7a92f;
+  margin-bottom: 1rem;
+}
+
+.mission-card h3 {
+  color: #e7a92f;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== VALUES ===== */
+.values {
+  padding: 4rem 1rem;
+  background: #111;
+  text-align: center;
+}
+
+.values h2 {
+  color: #e7a92f;
+  margin-bottom: 2rem;
+}
+
+.values-container {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.value-card {
+  background: #0b0b0b;
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  border: 1px solid #222;
+}
+
+.value-card:hover {
+  border-color: #e7a92f;
+  transform: translateY(-4px);
+}
+
+.value-card i {
+  font-size: 2rem;
+  color: #e24c0b;
+  margin-bottom: 1rem;
+}
+
+.value-card h4 {
+  color: #e7a92f;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background: #111;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}

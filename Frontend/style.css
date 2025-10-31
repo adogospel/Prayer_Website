@@ -1,0 +1,1219 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap");
+
+/* Global Reset and Variables */
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-padding-top: 1rem;
+  scroll-behavior: smooth;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+:root {
+  --main-color: #e7a92f;
+  --text-color: #e24c0b;
+  --bg-color: #fff;
+  --dark-bg: #0b0b0b;
+}
+
+/* Custom Scroll Bar */
+html::-webkit-scrollbar {
+  width: 0.5rem;
+  background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+  border-radius: 5rem;
+  background: var(--dark-bg);
+}
+
+/* Base Styles */
+img {
+  width: 100%;
+}
+body {
+  color: var(--bg-color);
+  background-color: var(
+    --bg-color
+  ); /* Set body background for non-home sections */
+}
+.container {
+  max-width: 1068px;
+  margin-right: auto;
+  margin-left: auto;
+}
+section {
+  padding: 6rem 0 3rem; /* Increased padding for better separation */
+}
+
+/* ==================================== */
+/* 1. HEADER & NAVBAR */
+/* ==================================== */
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  transition: background 0.3s ease-in-out;
+}
+header.scrolled {
+  background: rgba(0, 0, 0, 0.9);
+}
+.nav.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.logo span {
+  color: var(--main-color);
+}
+.navbar {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  transition: all 0.3s ease-in-out;
+  column-gap: 2rem;
+}
+.navbar a {
+  font-weight: 500;
+  transition: color 0.3s ease;
+  color: var(--bg-color);
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding-bottom: 5px; /* Added for the border-bottom */
+}
+.navbar a:hover,
+.navbar a.active {
+  color: var(--main-color);
+  border-bottom: 3px solid var(--main-color);
+}
+#menu-icon {
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  transition: transform 0.3s ease;
+}
+#menu-icon.active {
+  transform: rotate(90deg);
+}
+
+/* Sign In Button */
+.nav .sign-in {
+  color: var(--bg-color);
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, var(--main-color), var(--text-color));
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 250ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+.nav .sign-in span {
+  position: relative;
+  z-index: 2;
+}
+.nav .sign-in:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.2);
+}
+.nav .sign-in:active {
+  transform: translateY(-2px) scale(0.98);
+  transition-duration: 120ms;
+}
+/* Effet "shiny sweep" */
+.nav .sign-in::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -30%;
+  width: 60%;
+  height: 180%;
+  background: rgba(255, 255, 255, 0.12);
+  transform: rotate(25deg) translateX(-120%);
+  transition: transform 700ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  pointer-events: none;
+}
+.nav .sign-in:hover::after {
+  transform: rotate(25deg) translateX(120%);
+}
+
+/* ==================================== */
+/* 2. HOME SECTION */
+/* ==================================== */
+
+/*Home*/
+.home {
+  position: relative;
+  max-width: 1300px;
+  margin: auto;
+  width: 100%;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(./assets/images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* === FIX APPLIED HERE === */
+  background-position: center top;
+  /* was: background-position: center left; */
+  /* ======================== */
+  overflow: hidden;
+  text-align: center;
+}
+/* ... rest of .home styles ... */
+.home-text {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 1rem 2rem;
+}
+.home .home-text .h1 {
+  color: var(--bg-color);
+  font-family: "Playfair Display", serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 2rem;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+.home .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1;
+}
+.btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+.btn-group .btn.primary {
+  color: #fff;
+}
+
+/* Button Styles (Refined) */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  min-width: 250px; /* Ensure buttons are a readable size */
+  cursor: pointer;
+}
+.btn.primary {
+  background: linear-gradient(90deg, var(--main-color), var(--text-color));
+  box-shadow: 0 6px 20px rgba(226, 76, 11, 0.3);
+  border: none;
+}
+.btn.outline {
+  border: 2px solid var(--main-color);
+  color: var(--main-color);
+  background: transparent;
+}
+.btn.primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(226, 76, 11, 0.4);
+}
+.btn.outline:hover {
+  background: linear-gradient(90deg, var(--main-color), var(--text-color));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(226, 76, 11, 0.3);
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -30%;
+  width: 60%;
+  height: 180%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: rotate(25deg) translateX(-120%);
+  transition: transform 700ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  pointer-events: none;
+}
+.btn:hover::after {
+  transform: rotate(25deg) translateX(120%);
+}
+
+/* ==================================== */
+/* 3. AUTH MODAL */
+/* ==================================== */
+
+.auth-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7); /* Darker overlay for modal */
+  z-index: 2000;
+  padding: 2rem;
+  transition: opacity 0.25s ease;
+}
+.auth-modal.show {
+  display: flex;
+}
+.auth-modal-panel {
+  width: 100%;
+  max-width: 480px;
+  background: linear-gradient(180deg, var(--dark-bg), #181818);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  position: relative;
+  color: #fff;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+.auth-modal.show .auth-modal-panel {
+  transform: translateY(0);
+}
+.auth-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.auth-close:hover {
+  color: #fff;
+}
+.auth-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 5px;
+}
+.tab {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 8px 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tab.active {
+  background: linear-gradient(90deg, var(--main-color), var(--text-color));
+  color: var(--dark-bg);
+  box-shadow: 0 4px 10px rgba(231, 169, 47, 0.3);
+}
+.auth-form {
+  display: none;
+}
+.auth-form.active {
+  display: block;
+}
+.auth-form h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--main-color);
+  text-align: center;
+}
+.field {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+.field span {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 6px;
+}
+.field input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  outline: none;
+  transition: border 0.15s ease, box-shadow 0.15s ease;
+}
+.field input:focus {
+  box-shadow: 0 0 0 3px rgba(231, 169, 47, 0.2);
+  border-color: var(--main-color);
+  background: rgba(255, 255, 255, 0.08);
+}
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 0;
+}
+.row.between {
+  justify-content: space-between;
+}
+.row.center {
+  justify-content: center;
+  margin-top: 15px;
+}
+.checkbox {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+}
+.checkbox input {
+  width: 16px;
+  height: 16px;
+  /* Basic checkbox styling */
+}
+.btn.full {
+  width: 100%;
+  display: block;
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 8px;
+}
+.btn.primary {
+  background: linear-gradient(90deg, var(--main-color), var(--text-color));
+  color: var(--dark-bg);
+  box-shadow: 0 8px 24px rgba(226, 76, 11, 0.3);
+}
+.btn.outline {
+  background: transparent;
+  color: var(--main-color);
+  border: 2px solid rgba(231, 169, 47, 0.3);
+}
+.btn.small {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+.link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.link:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.small {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  gap: 8px;
+}
+
+/* ==================================== */
+/* 4. BOOKS EXPOSURE SECTION (EBOOKS) */
+/* ==================================== */
+.books {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* Increased gap */
+  justify-content: center;
+  background-color: var(--bg-color);
+  color: var(--dark-bg);
+}
+.books .h1 {
+  color: var(--dark-bg);
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Poppins", serif;
+}
+.books .verse {
+  color: black;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+.book-carousel {
+  text-align: center;
+  padding: 40px 30px;
+  background: linear-gradient(
+    to bottom right,
+    var(--main-color),
+    var(--text-color)
+  );
+  color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(226, 76, 11, 0.25);
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 20px;
+}
+.book-carousel h2 {
+  font-size: 2.2em;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+.carousel-container {
+  overflow: hidden;
+  max-width: 100%;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll 18s linear infinite;
+  padding: 15px 0;
+}
+.book-card {
+  flex: 0 0 250px;
+  background: var(--bg-color);
+  color: #333;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.4s;
+  transform-style: preserve-3d;
+}
+.book-card:hover {
+  transform: rotateY(0deg) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+.book-card img {
+  width: 100%;
+  border-radius: 10px;
+  height: 220px; /* Increased height for better book cover display */
+  object-fit: cover;
+}
+.book-card h3 {
+  margin-top: 15px;
+  font-size: 1.25em;
+  color: var(--text-color);
+}
+.book-card p {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 8px;
+}
+.books .btn.primary {
+  margin-top: 25px;
+  min-width: 200px;
+  color: var(--bg-color);
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==================================== */
+/* 5. PRAYER REQUEST SECTION - OPTIMIZED */
+/* ==================================== */
+
+section.prayer-request {
+  padding: 2rem;
+  background-color: #f7f7f7;
+  color: var(--dark-bg);
+}
+
+.prayer-request .container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.prayer-request .sidebar {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.prayer-request .wall {
+  flex: 1;
+}
+
+.prayer-request .sidebar h3 {
+  color: var(--dark-bg);
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--main-color);
+  padding-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.prayer-request .sidebar span {
+  color: var(--main-color);
+}
+
+.prayer-request .categories select,
+#prayer-modal select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+
+.prayer-request .about,
+.prayer-request .partner {
+  background: var(--bg-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.prayer-request .about img,
+.prayer-request .partner img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  max-height: 150px;
+  object-fit: cover;
+}
+
+.prayer-request .about .about-title,
+.prayer-request .partner .partner-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 5px;
+}
+
+.prayer-request .about p,
+.prayer-request .partner p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.prayer-request .about a {
+  color: var(--main-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.prayer-request .about a:hover {
+  text-decoration: underline;
+}
+
+.prayer-request .partner button {
+  padding: 10px 18px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(226, 76, 11, 0.2);
+}
+
+/* ===== PRAYER MODAL ===== */
+#prayer-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+#prayer-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#prayer-modal .auth-modal-panel {
+  background-color: var(--bg-color);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  position: relative;
+  transition: transform 0.3s ease;
+  transform: translateY(-20px);
+}
+
+#prayer-modal.show .auth-modal-panel {
+  transform: translateY(0);
+}
+
+/* Close button */
+#prayer-modal .auth-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  color: white;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+#prayer-modal .auth-close:hover {
+  color: var(--main-color);
+}
+
+/* Form styling */
+#prayer-modal .auth-form h2 {
+  color: var(--main-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+#prayer-modal .auth-form .field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.6rem;
+}
+
+#prayer-modal .auth-form .field span {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: white;
+}
+
+#prayer-modal .auth-form input,
+#prayer-modal .auth-form textarea {
+  padding: 0.75rem 1rem;
+  border-radius:  8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 0.95rem;
+  transition: border 0.2s, box-shadow 0.2s;
+  background-color: #0b0b0b;
+  color: white;
+}
+#prayer-modal .auth-form select{
+  padding: 0.75rem 1rem;
+  border-radius:  8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 0.95rem;
+  transition: border 0.2s, box-shadow 0.2s;
+  background-color: #0b0b0b;
+  color: white;
+}
+
+#prayer-modal .auth-form input:focus,
+#prayer-modal .auth-form select:focus,
+#prayer-modal .auth-form textarea:focus {
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 2px rgba(226,76,11,0.2);
+}
+
+/* Submit button */
+#prayer-modal .auth-form .btn.full {
+  width: 100%;
+  padding: 0.75rem 1.2rem;
+  background-color: var(--main-color);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.25s, transform 0.2s;
+  border: none;
+  margin-top: 1rem;
+}
+
+#prayer-modal .auth-form .btn.full:hover {
+  background-color: var(--text-color);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #prayer-modal .auth-modal-panel {
+    padding: 1.5rem;
+  }
+  #prayer-modal .auth-form h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #prayer-modal .auth-modal-panel {
+    padding: 1rem;
+  }
+  #prayer-modal .auth-form h2 {
+    font-size: 1.2rem;
+  }
+}
+
+
+/* ===== POSTS ===== */
+.wall .post {
+  background: var(--bg-color);
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.wall .post h4 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: var(--dark-bg);
+}
+
+.wall .post p {
+  margin: 0 0 15px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.wall .post small {
+  display: block;
+  font-size: 0.75rem;
+  color: #777;
+}
+
+/* ===== PRAY INFO ===== */
+.pray-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  flex-wrap: wrap;
+}
+
+.pray-count {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.pray-btn {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.pray-info span {
+  color: #777;
+  font-weight: 400;
+}
+
+.pray-info button {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  min-width: 150px;
+}
+
+.pray-info .btn.primary {
+  color: #fff;
+  background-color: var(--main-color);
+}
+
+/* ===== COMMENTS SECTION ===== */
+.comments-section {
+  background-color: #f9f9f9;
+  border-left: 3px solid var(--main-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-family: "Poppins", sans-serif;
+  display: none;
+}
+
+.comments-list {
+  max-height: 250px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  padding-right: 5px;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.comment .comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.3rem;
+}
+
+.comment .comment-header small {
+  font-weight: 600;
+  color: #333;
+}
+
+.comment .comment-header span {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.comment .comment-text {
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  padding: 6px 10px;
+  line-height: 1.4;
+  font-size: 0.9rem;
+}
+
+.comment strong {
+  color: var(--main-color);
+  margin-right: 5px;
+}
+
+/* ===== ADD COMMENT CONTAINER ===== */
+.add-comment-container {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+  align-items: center; /* align input and button */
+}
+
+.add-comment-container input {
+  flex: 1; /* input takes remaining space */
+  padding: 0.6rem 1rem;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.add-comment-container input:focus {
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
+}
+
+.add-comment-container button {
+  flex-shrink: 0; /* button doesn't shrink */
+  background-color: var(--main-color);
+  color: #fff;
+  border: none;
+  padding: 0.55rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-comment-container button:hover {
+  background-color: var(--text-color);
+  transform: translateY(-1px);
+}
+
+/* ===== COMMENT ICON ===== */
+.comment-icon {
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: color 0.2s;
+}
+.comment-icon:hover {
+  color: var(--main-color);
+}
+
+/* ===== SCROLLBARS ===== */
+.comments-list::-webkit-scrollbar {
+  width: 6px;
+}
+.comments-list::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 3px;
+}
+
+/* ===== RESPONSIVE ADD COMMENT ===== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .add-comment-container {
+    padding: 0.4rem 0.6rem;
+  }
+  .add-comment-container input {
+    font-size: 0.9rem;
+  }
+  .add-comment-container button {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .add-comment-container {
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5rem;
+  }
+  .add-comment-container input {
+    font-size: 0.9rem;
+  }
+  .add-comment-container button {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .add-comment-container {
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 15px;
+    padding: 0.8rem;
+    box-shadow: none;
+    background: #f9f9f9;
+  }
+  .add-comment-container input {
+    width: 100%;
+    margin-bottom: 0.6rem;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 0.7rem;
+  }
+  .add-comment-container button {
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+
+/* TVs / large screens */
+@media (min-width: 1920px) {
+  .add-comment-container input {
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+  .add-comment-container button {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+}
+
+
+/* ==================================== */
+/* 6. RESPONSIVE MEDIA QUERIES */
+/* ==================================== */
+
+/* ** LARGE SCREENS (Laptops/Desktops: > 1200px) ** */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+  .home-text .h1 {
+    font-size: 4rem;
+  }
+}
+
+/* ** TABLETS and smaller Laptops (992px to 1200px) ** */
+@media (max-width: 1200px) {
+  .nav.container {
+    padding: 15px 20px;
+  }
+  .container {
+    padding: 0 20px;
+  }
+}
+
+/* ** TABLETS (768px to 992px) ** */
+@media (max-width: 992px) {
+  section {
+    padding: 4rem 0 2rem;
+  }
+  /* Nav Menu Toggling */
+  #menu-icon {
+    display: block;
+  }
+  .navbar {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 280px;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    text-align: center;
+    padding: 25px 0;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.2);
+  }
+  .navbar.active {
+    right: 0;
+  }
+  .navbar li {
+    margin: 10px 0;
+  }
+  .navbar a {
+    display: block;
+    padding: 10px 0;
+    border-bottom: none !important; /* Override border for mobile list */
+  }
+  .navbar a:hover,
+  .navbar a.active {
+    color: var(--main-color);
+    background-color: rgba(231, 169, 47, 0.1);
+  }
+  .sign-in {
+    display: none; /* Hide main sign in button on small screens */
+  }
+
+  /* Home Section */
+  .home {
+    min-height: 500px;
+  }
+  .home .home-text .h1 {
+    font-size: 2.5rem;
+  }
+  .btn {
+    min-width: 220px;
+    padding: 0.7rem 1.5rem;
+  }
+
+  /* Prayer Request Section (Switch to stacked layout) */
+  .prayer-request .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .prayer-request .sidebar {
+    width: 100%;
+  }
+}
+
+/* ** MOBILE PHONES (480px to 768px) ** */
+@media (max-width: 768px) {
+  .home .home-text .h1 {
+    font-size: 2rem;
+  }
+  .btn-group {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .btn {
+    width: 90%;
+    min-width: 0;
+  }
+  /* Book Carousel */
+  .book-carousel {
+    padding: 30px 15px;
+    border-radius: 15px;
+  }
+  .carousel-track {
+    animation-duration: 30s; /* Slower scroll for fewer items */
+    gap: 15px;
+  }
+  .book-card {
+    flex: 0 0 70%; /* Show part of the next item */
+    max-width: 220px;
+  }
+
+  /* Prayer Request Section */
+  .pray-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .pray-info button {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* ** SMALL MOBILE PHONES (<= 480px) ** */
+@media (max-width: 480px) {
+  .nav.container {
+    padding: 10px 15px;
+  }
+  .logo {
+    font-size: 1.5rem;
+  }
+  .home .home-text .h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .btn {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  .auth-modal-panel {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  .auth-tabs {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .tab {
+    font-size: 0.9rem;
+  }
+  /* Book Carousel */
+  .book-card {
+    flex: 0 0 85%;
+    max-width: 200px;
+  }
+  .book-card img {
+    height: 150px;
+  }
+}
+
+/* ** TV / Extra Large Screens (For completeness, though generally covered by default) ** */
+@media (min-width: 1600px) {
+  .home {
+    min-height: 900px;
+  }
+  .home .home-text .h1 {
+    font-size: 5rem;
+  }
+}
