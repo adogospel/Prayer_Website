@@ -1,1 +1,16 @@
+# Secrets
+.env
+.env.local
+
+# Dépendances (TRÈS IMPORTANT)
+node_modules/
+
+# Build et Cache
 .vercel
+dist/
+build/
+.next/
+
+# Logs et OS
+*.log
+.DS_Store
