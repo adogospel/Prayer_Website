@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - LetsPray</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <section class="dashboard">
+    <h1>📚 Admin Dashboard</h1>
+
+    <!-- LOGIN PANEL -->
+    <div class="panel" id="loginPanel">
+      <h2>Admin Login</h2>
+      <form id="loginForm">
+        <input type="text" name="username" placeholder="Username" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+      <p id="loginMsg"></p>
+    </div>
+
+    <!-- MAIN DASHBOARD -->
+    <div id="mainDashboard" style="display: none;">
+      <!-- Add Category -->
+      <div class="panel">
+        <h2>Add New Category</h2>
+        <form id="categoryForm">
+          <input type="text" id="categoryName" placeholder="Category name" required />
+          <button type="submit">Add Category</button>
+        </form>
+      </div>
+
+      <!-- Upload Book -->
+      <div class="panel">
+        <h2>Upload New Book</h2>
+        <form id="bookForm" enctype="multipart/form-data">
+          <input type="text" name="title" placeholder="Book title" required />
+          <textarea name="description" placeholder="Book description" required></textarea>
+          <select name="category" id="bookCategory" required></select>
+
+          <label>📘 Upload PDF file</label>
+          <input type="file" name="file" accept=".pdf" required />
+
+          <label>🖼️ Upload Book Image</label>
+          <input type="file" name="image" accept="image/*" required />
+
+          <button type="submit">Upload Book</button>
+        </form>
+      </div>
+
+      <p id="msg"></p>
+      <button id="logoutBtn">Logout</button>
+      <a href="../Teachings/teachings.html"><button id="teachingsBtn">Teachings</button></a>
+    </div>
+  </section>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

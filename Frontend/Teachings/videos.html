@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Teachings</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="all-teachings.css">
+  <link rel="stylesheet" href="../footer.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="../assets/images/icon1.png" />
+</head>
+<body>
+
+  <header>
+    <div class="nav container">
+      <i class="bx bx-menu" id="menu-icon"></i>
+      <a href="index.html" class="logo">Lets<span>Pray</span></a>
+      <ul class="navbar">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#ebooks.html">E-books</a></li>
+        <li><a href="../index.html#prayer-request">Prayer Requests</a></li>
+        <li><a href="../intercessors/intercessors.html">Intercessors</a></li>
+        <li><a href="./videos.html"  class="active">Teachings</a></li>
+        <li><a href="../Contact/contact.html">Contact</a></li>
+      </ul>
+      <button id="open-signin" class="sign-in"><span>Sign In</span></button>
+    </div>
+  </header>
+  <!-- Modal backdrop + container -->
+  <div id="auth-modal" class="auth-modal" aria-hidden="true" role="dialog" aria-labelledby="auth-title">
+    <div class="auth-modal-panel" role="document">
+      <button class="auth-close" id="auth-close" aria-label="Close">
+        &times;
+      </button>
+
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button id="tab-signin" class="tab active">Sign In</button>
+        <button id="tab-signup" class="tab">Sign Up</button>
+      </div>
+
+      <!-- SIGN IN FORM -->
+      <form id="signin-form" class="auth-form active" autocomplete="on">
+        <h2 id="auth-title">Welcome back</h2>
+
+        <label class="field">
+          <span>Email</span>
+          <input id="signin-email" name="email" type="email" required placeholder="you@example.com" />
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <input id="signin-password" name="password" type="password" required placeholder="Your password" />
+        </label>
+
+        <div class="row between">
+          <label class="checkbox">
+            <input id="keep-signed" type="checkbox" />
+            <span>Keep me signed in</span>
+          </label>
+
+          <a href="#" id="forgot-link" class="link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn primary full">Sign In</button>
+        <div class="divider" style="text-align:center;margin:10px 0;color:#aaa;">OR</div>
+
+        <a id="google-link" href="http://localhost:4000/auth/google" class="btn google full"
+          style="background:#fff;color:#000;display:flex;align-items:center;gap:10px;justify-content:center;">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="20" alt="g"> Sign in with
+          Google
+        </a>
+
+        <div class="row center small">
+          <span>Don't have an account?</span>
+          <button type="button" id="to-signup" class="btn outline small">
+            Sign Up
+          </button>
+        </div>
+      </form>
+
+      <!-- SIGN UP FORM -->
+      <form id="signup-form" class="auth-form" autocomplete="on">
+        <h2>Create account</h2>
+
+        <label class="field">
+          <span>Full name</span>
+          <input id="signup-name" name="name" type="text" required placeholder="Your full name" />
+        </label>
+
+        <label class="field">
+          <span>Email</span>
+          <input id="signup-email" name="email" type="email" required placeholder="you@example.com" />
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <input id="signup-password" name="password" type="password" required placeholder="Choose a password" />
+        </label>
+
+        <button type="submit" class="btn primary full">Sign Up</button>
+
+        <div class="row center small">
+          <span>Already registered?</span>
+          <button type="button" id="to-signin" class="btn outline small">
+            Sign In
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <section class="filter-bar"></section>
+
+  <main class="teachings-container" id="teachingsList">
+    <!-- Videos will be dynamically inserted here -->
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-about">
+          <h3 class="logo">Lets<span>Pray</span></h3>
+          <p>
+            A global community of faith united in prayer. We believe in the
+            power of intercession and connection with God through love and
+            gratitude.
+          </p>
+          <div class="footer-socials">
+            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="#"><i class="bx bxl-instagram"></i></a>
+            <a href="#"><i class="bx bxl-twitter"></i></a>
+            <a href="#"><i class="bx bxl-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#ebooks">E-books</a></li>
+            <li><a href="../index.html#prayer-request">Prayer Requests</a></li>
+            <li><a href="../intercessors/intercessors.html">Intercessors</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="../Contact/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Contact Info</h4>
+          <ul>
+            <li><i class="bx bx-map"></i> Douala, Cameroon</li>
+            <li><i class="bx bx-envelope"></i> info@letspray.org</li>
+            <li><i class="bx bx-phone"></i> +237 6 90 12 34 56</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 LetsPray. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+  <script src="videos.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

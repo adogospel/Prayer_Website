@@ -1,8 +1,8 @@
-import mongoose from 'mongoose';
+const mongoose = require("mongoose");
 
 const commentSchema = new mongoose.Schema({
-  user: { type: String, required: true },
-  text: { type: String, required: true },
+  user: String,
+  text: String,
   date: { type: Date, default: Date.now }
 });
 
@@ -12,9 +12,9 @@ const prayerSchema = new mongoose.Schema({
   category: { type: String, required: true },
   date: { type: Date, default: Date.now },
   prayCount: { type: Number, default: 0 },
+  shareCount: { type: Number, default: 0 },
   comments: [commentSchema],
-  prayedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }] // 👈 to track who prayed
+  prayedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }]
 });
 
-const Prayer = mongoose.model('Prayer', prayerSchema);
-export default Prayer;
+module.exports = mongoose.model("Prayer", prayerSchema);

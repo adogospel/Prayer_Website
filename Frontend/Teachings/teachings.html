@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Teachings Dashboard</title>
+  <link rel="stylesheet" href="teachings.css">
+</head>
+<body>
+
+<section class="dashboard">
+  <h1>🎥 Teachings Dashboard</h1>
+
+  <div class="panel">
+    <h2>Add Teaching Category</h2>
+    <form id="teachingCategoryForm">
+      <input type="text" id="teachingCategoryName" placeholder="Category name" required>
+      <button>Add Category</button>
+    </form>
+  </div>
+
+  <div class="panel">
+    <h2>Add Teaching Video</h2>
+    <form id="teachingForm">
+      <input type="text" name="title" placeholder="Title" required>
+      <input type="text" name="speaker" placeholder="Speaker">
+      <textarea name="description" placeholder="Description"></textarea>
+
+      <select name="category" id="teachingCategorySelect" required></select>
+
+      <input type="url" name="videoUrl" placeholder="YouTube / Vimeo URL" required>
+
+      <button>Publish Teaching</button>
+    </form>
+    <a href="../dashboard/dashboard.html"><button id="teachingsBtn">Books</button></a>
+  </div>
+
+  <p id="msg"></p>
+</section>
+
+<script src="teachings.js"></script>
+</body>
+</html>

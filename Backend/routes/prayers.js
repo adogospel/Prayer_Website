@@ -1,25 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 const authMiddleware = require('../middlewares/authMiddleWare');
+const Prayer = require("../models/prayers");
 
-// === PRAYER SCHEMA ===
-const prayerSchema = new mongoose.Schema({
-  user: { type: String, required: true },
-  category: { type: String, required: true },
-  request: { type: String, required: true },
-  date: { type: Date, default: Date.now },
-  prayCount: { type: Number, default: 0 },
-  comments: [
-    {
-      user: String,
-      text: String,
-      date: { type: Date, default: Date.now }
-    }
-  ]
-});
-
-const Prayer = mongoose.model('Prayer', prayerSchema);
 
 // === POST NEW PRAYER ===
 router.post('/', authMiddleware, async (req, res) => {
@@ -48,8 +31,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-
 // === Increment pray count ===
 router.post('/:id/pray', authMiddleware, async (req, res) => {
   const prayer = await Prayer.findById(req.params.id);
@@ -68,18 +49,6 @@ router.post('/:id/pray', authMiddleware, async (req, res) => {
   await prayer.save();
 
   res.json({ prayCount: prayer.prayCount });
-
-  try {
-    const prayer = await Prayer.findById(req.params.id);
-    if (!prayer) return res.status(404).json({ message: 'Prayer not found' });
-
-    // Only increment once per user (frontend ensures one click per session)
-    prayer.prayCount += 1;
-    await prayer.save();
-    res.json({ prayCount: prayer.prayCount });
-  } catch (err) {
-    res.status(500).json({ message: 'Server error' });
-  }
 });
 
 // === Add comment and increment pray count ===
@@ -101,5 +70,24 @@ router.post('/:id/comment', authMiddleware, async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
+
+router.post("/:id/share", async (req, res) => {
+  try {
+    const prayer = await Prayer.findByIdAndUpdate(
+      req.params.id,
+      { $inc: { shareCount: 1 } },
+      { new: true }
+    );
+
+    if (!prayer) {
+      return res.status(404).json({ message: "Prayer not found" });
+    }
+
+    res.json({ shareCount: prayer.shareCount });
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 
 module.exports = router;
